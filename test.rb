@@ -1,14 +1,6 @@
-require 'http'
-require 'json'
+require 'slack'
 
-result = HTTP.post(
-  'https://slack.com/api/chat.postMessage',
-  params: {
-    token: token,
-    channel: 'slack-bot-test',
-    text: 'Test Message',
-    as_user: 'slackbot'
-  }
-)
+# Create a new client
+client = Slack::Web::Client.new(token: ENV['SLACK_API_TOKEN'])
 
-puts JSON.pretty_generate(JSON.parse(result.body))
+client.auth_test
