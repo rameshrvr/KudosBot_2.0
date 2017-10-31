@@ -4,7 +4,7 @@ require 'json'
 result = HTTP.post(
   'https://slack.com/api/chat.postMessage',
   params: {
-    token: 'xoxb-263971807829-z1yjgA1utAZSHJsOq9M51LZg',
+    token: token,
     channel: 'slack-bot-test',
     text: 'Test Message',
     as_user: 'slackbot'

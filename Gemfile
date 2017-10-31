@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
 
-gem 'http'
-gem 'json'
+gem 'eventmachine'
+gem 'faye-websocket'
+gem 'slack-ruby-client'
