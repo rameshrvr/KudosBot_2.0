@@ -11,12 +11,13 @@ client.on :hello do
   puts "Successfully connected, to the team at https://#{client.team.domain}.slack.com."
 end
 
+# Deals with realtime messages
 client.on :message do |data|
   case data.text
   when 'bot hi' then
-    client.message channel: data.channel, text: "Hi <@#{data.user}>!"
+    client.message(channel: data.channel, text: "Hi <@#{data.user}>!")
   when /^bot/ then
-    client.message channel: data.channel, text: "Sorry <@#{data.user}>, what?"
+    client.message(channel: data.channel, text: "Sorry <@#{data.user}>, what?")
   end
 end
 

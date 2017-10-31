@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     activesupport (5.1.4)
       concurrent-ruby (~> 1.0, >= 1.0.2)
@@ -7,6 +7,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     concurrent-ruby (1.0.5)
+    eventmachine (1.2.5)
     eventmachine (1.2.5-x64-mingw32)
     faraday (0.13.1)
       multipart-post (>= 1.2, < 3)
@@ -22,7 +23,7 @@ GEM
     json (2.1.0)
     minitest (5.10.3)
     multipart-post (2.0.0)
-    slack-ruby-client (0.10.1)
+    slack-ruby-client (0.10.0)
       activesupport
       faraday (>= 0.9)
       faraday_middleware
@@ -38,6 +39,7 @@ GEM
     websocket-extensions (0.1.2)
 
 PLATFORMS
+  ruby
   x64-mingw32
 
 DEPENDENCIES
@@ -46,4 +48,4 @@ DEPENDENCIES
   slack-ruby-client
 
 BUNDLED WITH
-   1.15.4
+   1.16.0.pre.3
