@@ -19,17 +19,24 @@ end
 
 # Deals with realtime messages
 client.on :message do |data|
-  if data.text.include?('kudos ')
+  if data.text.include?('kudos leaderboard')
+    board = get_leaderboard
+    board.each do |hash|
+      client.message(channel: data.channel, text: "<@#{hash.keys.join()}> : #{hash.values.join()}")
+    end
+  elsif data.text.include?('kudos ')
     @data_array = data.text.gsub(/kudos /, '').split(/'|'/).map(&:strip).reject(&:empty?)
-    @user_names = @data_array[0].split(/, | |,/).each { |name| name.gsub!(/@/, '') }
+    @user_names = @data_array[0].split(/, | |,/).each { |name| name.gsub!(/@|<|>/, '') }
     @core_value = @data_array[1]
     @kudos_text = @data_array[2]
-    update_details(
-      giver: data.user,
-      getter: @user_names.join(','),
-      core_value: @core_value,
-      message: @kudos_text
-    )
+    @user_names.each do |individual_user|
+      update_details(
+        createdby: data.user,
+        performer: individual_user,
+        core_value: @core_value,
+        message: @kudos_text
+      )
+    end
     client.message(channel: data.channel, text: "Successfully Updated")
   end
 end
