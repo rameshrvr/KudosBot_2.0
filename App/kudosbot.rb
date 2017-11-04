@@ -70,6 +70,25 @@ client.on :message do |data|
         }
       ]
     )
+  when 'kudos giverboard' then
+    board = get_giverboard
+    fields_arr = []
+    board.each do |hash|
+      fields_arr.push({ "value": "<@#{hash.keys.join()}> : #{hash.values.join()}" })
+    end
+    client.web_client.chat_postMessage(
+      channel: data.channel,
+      text: "*Giverboard* :+1:",
+      as_user: true,
+      attachments: [
+        {
+          "color": "#36a64f",
+          "fields": fields_arr,
+          "footer": "KudosBot",
+          "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png"
+        }
+      ]
+    )
   when /kudos &lt;.*&gt;/ then
     @data_array = data.text.gsub(/kudos /, '').split(/&lt;|&gt;/).map(&:strip).reject(&:empty?)
     @user_names = @data_array[0].split(/, | |,/).each { |name| name.gsub!(/@|<|>/, '') }
