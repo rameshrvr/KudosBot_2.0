@@ -113,10 +113,9 @@ client.on :message do |data|
     @user_names = @data_array[0].split(/, | |,/).each { |name| name.gsub!(/@|<|>/, '') }
     @core_value = @data_array[1]
     @kudos_text = @data_array[2]
-    sparkle = ':tada: :sparkles: :boom:'
     client.web_client.chat_postMessage(
       channel: data.channel,
-      text: "*Hooray!!!* #{@data_array[0]} #{sparkle} _you received an appreciation from_ <@#{data.user}> :trophy: :clap:",
+      text: "*Congrats!!!* #{@data_array[0]} :tada: :sparkles: :boom: _you received an appreciation from_ <@#{data.user}> :trophy: :clap:",
       as_user: true,
       attachments: [
         {
