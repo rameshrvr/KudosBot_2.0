@@ -51,6 +51,25 @@ client.on :message do |data|
         }
       ]
     )
+  when 'kudos stats' then
+    stats = get_stats(user: data.user)
+    fields_arr = []
+    stats.each do |key, value|
+      fields_arr.push({ "value": "#{key} #{value} Appreciations"})
+    end
+    client.web_client.chat_postMessage(
+      channel: data.channel,
+      text: "*Your Stats*",
+      as_user: true,
+      attachments: [
+        {
+          "color": "#36a64f",
+          "fields": fields_arr,
+          "footer": "KudosBot",
+          "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png"
+        }
+      ]
+    )
   when 'kudos leaderboard' then
     board = get_leaderboard
     fields_arr = []

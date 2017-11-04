@@ -25,6 +25,27 @@ module DBInt
     @db.query("insert into kudos (#{columns.join(',')}) values (#{values.join(',')})")
   end
 
+  # Method to get stats for an individual user
+  #
+  # @param user: [String] user id of the user
+  #
+  # @return [Hash] hash containing given and received count
+  def get_stats(
+      user:
+    )
+    result = Hash.new
+    # Get the given details from database.
+    result['Given'] = @db.query(
+      "select count(*) from kudos where createdby = '#{user}'"
+    ).as_json[0].values.join()
+    # Get the received details from database
+    result['Received'] = @db.query(
+      "select count(*) from kudos where performer = '#{user}'"
+    ).as_json[0].values.join()
+    # Return result
+    result
+  end
+
   # Method to get the leaderboard details
   #
   # @return Array of Hash containing the details of leaderboard
