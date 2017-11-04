@@ -1,5 +1,5 @@
 require 'slack'
-require_relative 'db_interaction'
+require_relative '../Database/db_interaction'
 
 include DBInt
 
@@ -25,7 +25,7 @@ client.on :message do |data|
       client.message(channel: data.channel, text: "<@#{hash.keys.join()}> : #{hash.values.join()}")
     end
   elsif data.text.include?('kudos ')
-    @data_array = data.text.gsub(/kudos /, '').split(/'|'/).map(&:strip).reject(&:empty?)
+    @data_array = data.text.gsub(/kudos /, '').split(/&lt;|&gt;/).map(&:strip).reject(&:empty?)
     @user_names = @data_array[0].split(/, | |,/).each { |name| name.gsub!(/@|<|>/, '') }
     @core_value = @data_array[1]
     @kudos_text = @data_array[2]
@@ -37,7 +37,30 @@ client.on :message do |data|
         message: @kudos_text
       )
     end
-    client.message(channel: data.channel, text: "Successfully Updated")
+    sparkle = Array.new(3) { ':sparkles:' }
+    client.web_client.chat_postMessage(
+      channel: data.channel,
+      text: "*Hooray!!!* #{@data_array[0]} #{sparkle.join(' ')} _you received an appreciation from_ <@#{data.user}> :clap:",
+      as_user: true,
+      attachments: [
+        {
+          "color": "#3AA3E3",
+          "attachment_type": "default",
+          "fields": [
+            {
+              "title": "For Core Value:",
+              "value": "Teaching"
+            },
+            {
+              "title": "Message:",
+              "value": "This is a sample message"
+            },
+          ],
+          "footer": "KudosBot",
+          "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png",
+        }
+      ]
+    )
   end
 end
 
