@@ -44,20 +44,20 @@ client.on :message do |data|
       as_user: true,
       attachments: [
         {
-          "color": "#3AA3E3",
+          "color": "#36a64f",
           "attachment_type": "default",
           "fields": [
             {
               "title": "For Core Value:",
-              "value": "Teaching"
+              "value": "#{@core_value}"
             },
             {
               "title": "Message:",
-              "value": "This is a sample message"
-            },
+              "value": "#{@kudos_text}"
+            }
           ],
           "footer": "KudosBot",
-          "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png",
+          "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png"
         }
       ]
     )
