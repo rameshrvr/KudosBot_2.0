@@ -16,17 +16,19 @@ end
 
 # Deals with realtime messages
 client.on :message do |data|
-  case data.text
-  when 'kudos help' then
-  	bot.post_help_message(data: data)
-  when 'kudos stats' then
-  	bot.post_stats_message(data: data)
-  when 'kudos leaderboard' then
-  	bot.post_leaderboard_message(data: data)
-  when 'kudos giverboard' then
-  	bot.post_giverboard_message(data: data)
-  when /kudos &lt;.*&gt;/ then
-  	bot.post_kudos_message(data: data)
+  if data.text =~ /^kudos .*/i
+    case data.text
+    when /kudos help/i then
+      bot.post_help_message(data: data)
+    when /kudos stats/i then
+      bot.post_stats_message(data: data)
+    when /kudos leaderboard/i then
+      bot.post_leaderboard_message(data: data)
+    when /kudos giverboard/i then
+      bot.post_giverboard_message(data: data)
+    when /kudos &lt;.*&gt;/i then
+      bot.post_kudos_message(data: data)
+    end
   end
 end
 

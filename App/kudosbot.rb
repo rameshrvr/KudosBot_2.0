@@ -78,7 +78,7 @@ class KudosBot
   def post_kudos_message(
       data:
     )
-    @data_array = data.text.gsub(/kudos /, '').split(/&lt;|&gt;/).map(&:strip).reject(&:empty?)
+    @data_array = data.text.gsub(/kudos /i, '').split(/&lt;|&gt;/).map(&:strip).reject(&:empty?)
     @user_names = @data_array[0].split(/, | |,/).each { |name| name.gsub!(/@|<|>/, '') }
     text = "*Congrats!!!* #{@data_array[0]} :tada: :sparkles: :boom: _you received an appreciation from_ <@#{data.user}> :trophy: :clap:"
     fields = [
