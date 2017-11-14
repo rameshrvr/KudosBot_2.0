@@ -7,7 +7,7 @@ A Slack bot that helps to appreciate team members. It also helps us to track the
 Clone this repositary.
 
 ```
-git clone https://github.com/rameshrvr/KudosBot.git
+git clone https://github.com/rameshrvr/KudosBot_2.0.git
 ```
 
 Run `bundle install`.
@@ -24,16 +24,18 @@ If you are using a linux machine
 
 ```
 export SLACK_API_TOKEN={your slack app api token}
-export SQL_USERNAME={your MySql username}
-export SQL_PASSWORD={your MySql password}
 ```
 
 If you are using a windows machine
 
 ```
 SET SLACK_API_TOKEN={your slack app api token}
-SET SQL_USERNAME={your MySql username}
-SET SQL_PASSWORD={your MySql password}
+```
+
+Create a new database using the below comment (You can edit your database name, table name, column values in create_new_database.rb)
+
+```
+ruby Database\create_new_database.rb
 ```
 
 ### Start Application
