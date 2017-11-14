@@ -2,5 +2,5 @@ source 'https://rubygems.org'
 
 gem 'eventmachine'
 gem 'faye-websocket'
-gem 'mysql2'
+gem 'sqlite3'
 gem 'slack-ruby-client'

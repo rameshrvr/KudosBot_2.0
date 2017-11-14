@@ -1,15 +1,11 @@
-require 'mysql2'
+require 'sqlite3'
 
+# Module which holds DB handling related stuffs
 module DBInt
   # Method to initialize object for connecting to database
   def init_db_object
     # Create a Database object
-    @db = Mysql2::Client.new(
-      host: 'localhost',
-      username: ENV['SQL_USERNAME'],
-      password: ENV['SQL_PASSWORD'],
-      database: 'kudos_bot'
-    )
+    @db = SQLite3::Database.open('kudos_bot.db')
   end
 
   # Method to update details in databse
@@ -17,7 +13,8 @@ module DBInt
   # @param params [Hash] hash of column names and their
   #   corresponding values to be updated
   def update_details(**params)
-    columns, values = [], []
+    columns = []
+    values = []
     params.each do |key, value|
       columns.push(key.to_s)
       values.push("'#{value.to_s}'")
@@ -33,15 +30,15 @@ module DBInt
   def get_stats(
       user:
     )
-    result = Hash.new
+    result = {}
     # Get the given details from database.
-    result['Given'] = @db.query(
+    result['Given'] = @db.execute(
       "select count(*) from kudos where createdby = '#{user}'"
-    ).as_json[0].values.join()
+    ).join
     # Get the received details from database
-    result['Received'] = @db.query(
+    result['Received'] = @db.execute(
       "select count(*) from kudos where performer = '#{user}'"
-    ).as_json[0].values.join()
+    ).join
     # Return result
     result
   end
@@ -71,14 +68,14 @@ module DBInt
     )
     result = Array.new { Hash.new }
     # In Default take last 30 days of record
-    data = @db.query(
-      "select distinct #{who} from kudos where created >= adddate(now(), INTERVAL-1 MONTH)"
-    ).as_json
-    data.each_with_index do |single_user|
-      user = single_user[who]
-      temp = @db.query(
-        "select count(#{who}) from kudos where #{who} = '#{user}' and created >= adddate(now(), INTERVAL-1 MONTH)"
-      ).as_json[0].values.join()
+    data = @db.execute(
+      "select distinct #{who} from kudos where created >= datetime('now', '-30 days')"
+    )
+    data.each do |single_user|
+      user = single_user.join
+      temp = @db.execute(
+        "select count(*) from kudos where #{who} = '#{user}' and created >= datetime('now', '-30 days')"
+      ).join
       result.push("#{user}" => temp)
     end
     # Return result as an Array of Hash
