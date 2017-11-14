@@ -35,7 +35,7 @@ SET SLACK_API_TOKEN={your slack app api token}
 Create a new database using the below comment (You can edit your database name, table name, column values in create_new_database.rb)
 
 ```
-ruby Database\create_new_database.rb
+ruby Database/create_new_database.rb
 ```
 
 ### Start Application
