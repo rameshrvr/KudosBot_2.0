@@ -51,22 +51,22 @@ ruby Server/start_server.rb
 
 ### Examples
 
-To see all supported commands (help)
+#### To see all supported commands (help)
 
 ![](Assets/Images/Kudos_help.png)
 
-Giving appreciations to team members
+#### Giving appreciations to team members
 
 ![](Assets/Images/Kudos_new.png)
 
-View Leaderboard
+#### View Leaderboard
 
 ![](Assets/Images/Kudos_leaderboard.png)
 
-View Giverboard
+#### View Giverboard
 
 ![](Assets/Images/Kudos_giverboard.png)
 
-View your stats
+#### View your stats
 
 ![](Assets/Images/Kudos_stats.png)
