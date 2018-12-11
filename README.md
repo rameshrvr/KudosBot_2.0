@@ -18,6 +18,9 @@ Run `bundle install`.
 
 This is something done in Slack, under [integrations](https://my.slack.com/services). Create a [new bot](https://my.slack.com/services/new/bot), and note its API token.
 
+![](Assets/Images/register-bot.png)
+
+
 ### Settings
 
 If you are using a linux machine
@@ -45,3 +48,25 @@ Start the server using the below comment
 ```
 ruby Server/start_server.rb
 ```
+
+### Examples
+
+To see all supported commands (help)
+
+![](Assets/Images/Kudos_help.png)
+
+Giving appreciations to team members
+
+![](Assets/Images/Kudos_new.png)
+
+View Leaderboard
+
+![](Assets/Images/Kudos_leaderboard.png)
+
+View Giverboard
+
+![](Assets/Images/Kudos_giverboard.png)
+
+View your stats
+
+![](Assets/Images/Kudos_stats.png)
