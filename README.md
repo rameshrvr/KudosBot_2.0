@@ -53,7 +53,7 @@ ruby Server/start_server.rb
 
 #### To see all supported commands (help)
 
-![](Assets/Images/Kudos_help.png)
+![test](Assets/Images/Kudos_help.png){:height="50%" width="50%"}
 
 #### Giving appreciations to team members
 
