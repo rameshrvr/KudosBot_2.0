@@ -53,21 +53,20 @@ ruby Server/start_server.rb
 
 #### To see all supported commands (help)
 
-<!-- ![test](Assets/Images/Kudos_help.png) -->
-<img src='https://github.com/rameshrvr/KudosBot_2.0/blob/master/Assets/Images/Kudos_help.png' height="50%" width="50%">
+<img src='https://github.com/rameshrvr/KudosBot_2.0/blob/master/Assets/Images/Kudos_help.png' height="75%" width="75%">
 
 #### Giving appreciations to team members
 
-![](Assets/Images/Kudos_new.png)
+<img src='https://github.com/rameshrvr/KudosBot_2.0/blob/master/Assets/Images/Kudos_new.png' height="75%" width="75%">
 
 #### View Leaderboard
 
-![](Assets/Images/Kudos_leaderboard.png)
+<img src='https://github.com/rameshrvr/KudosBot_2.0/blob/master/Assets/Images/Kudos_leaderboard.png' height="75%" width="75%">
 
 #### View Giverboard
 
-![](Assets/Images/Kudos_giverboard.png)
+<img src='https://github.com/rameshrvr/KudosBot_2.0/blob/master/Assets/Images/Kudos_giverboard.png' height="75%" width="75%">
 
 #### View your stats
 
-![](Assets/Images/Kudos_stats.png)
+<img src='https://github.com/rameshrvr/KudosBot_2.0/blob/master/Assets/Images/Kudos_stats.png' height="75%" width="75%">
