@@ -53,7 +53,8 @@ ruby Server/start_server.rb
 
 #### To see all supported commands (help)
 
-![test](Assets/Images/Kudos_help.png){:height="50%" width="50%"}
+<!-- ![test](Assets/Images/Kudos_help.png) -->
+<img src='https://github.com/rameshrvr/KudosBot_2.0/blob/master/Assets/Images/Kudos_help.png' align="left" height="48" width="48">
 
 #### Giving appreciations to team members
 
